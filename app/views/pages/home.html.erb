@@ -1,7 +1,20 @@
 <div class="jumbotron center">
      <h1>modern, minimal elegant wedding site in minutes!</h1>
      <% if  user_signed_in? %>
-     		#do Something
+     	<div ng-app="notes" ng-controller="NotesCtrl">
+          <ul>
+            <li ng-repeat="note in notes">
+              {{note.title}}
+              {{note.body}}
+            </li>
+          </ul>
+
+          <form action="/api/notes" method="post">
+            <input type="text" name="title" ng-model="title" />
+            <input type="text" name="body" ng-model="body" />
+          </form>
+          <button ng-click="addNote()">Add</button>
+        </div>
      <% else %>
 	     <p>
 	       <%= link_to "Log in", new_user_session_path, 

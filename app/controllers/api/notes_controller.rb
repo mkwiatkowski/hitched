@@ -1,13 +1,10 @@
-class NotesController < ApplicationController
-  def new
-  end
-
+class Api::NotesController < ApplicationController
   def index
-    render json: notes
+    render json: Note.all
   end
 
   def create
-    note = notes.create!(safe_params)
+    note = Note.create!(safe_params)
     render json: note, status: 201
   end
 
@@ -25,5 +22,8 @@ class NotesController < ApplicationController
     params.require(:note).permit(:title, :body)
   end
 
-end
+  def note
+    Note.find(params[:id])
+  end
 
+end
