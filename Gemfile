@@ -29,6 +29,7 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 gem 'devise', '~> 3.1.1'
 
+gem 'active_model_serializers'
 
 group :development, :test do 
 	gem 'sqlite3'
