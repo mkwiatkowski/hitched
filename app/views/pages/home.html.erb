@@ -1,11 +1,11 @@
 <div class="jumbotron center">
-     <h1>modern, minimal elegant wedding site in minutes!</h1>
-     <% if  user_signed_in? %>
+     <% if user_signed_in? %>
      	<div ng-app="notes" ng-controller="NotesCtrl">
           <ul>
             <li ng-repeat="note in notes">
-              {{note.title}}
-              {{note.body}}
+              <amul-contenteditable model="note.title" on-blur="updateNote(note)"></amul-contenteditable>
+              <amul-contenteditable model="note.body" on-blur="updateNote(note)"></amul-contenteditable>
+              <button ng-click="deleteNote(note)">[x]</button>
             </li>
           </ul>
 

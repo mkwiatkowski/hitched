@@ -1,10 +1,10 @@
 class Api::NotesController < ApplicationController
   def index
-    render json: Note.all
+    render json: current_user.notes.all
   end
 
   def create
-    note = Note.create!(safe_params)
+    note = current_user.notes.create!(safe_params)
     render json: note, status: 201
   end
 
